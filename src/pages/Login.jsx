@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Announcement from '../components/Announcement';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   background-size: cover;
   display: flex;
@@ -15,6 +19,7 @@ const Wrapper = styled.div`
   width: 30%;
   padding: 1.25rem;
   background-color: white;
+  ${mobile({ width: '75%' })}
 `;
 
 const Title = styled.h1`
@@ -53,19 +58,24 @@ const Link = styled.a`
 
 const Login = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input placeholder='username' />
-          <Input placeholder='password' />
+    <>
+      <Announcement />
+      <Navbar />
+      <Container>
+        <Wrapper>
+          <Title>SIGN IN</Title>
+          <Form>
+            <Input placeholder='username' />
+            <Input placeholder='password' />
 
-          <Button>LOGIN</Button>
-          <Link>I FORGOT MY PASSWORD</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
-      </Wrapper>
-    </Container>
+            <Button>LOGIN</Button>
+            <Link>I FORGOT MY PASSWORD</Link>
+            <Link>CREATE A NEW ACCOUNT</Link>
+          </Form>
+        </Wrapper>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
